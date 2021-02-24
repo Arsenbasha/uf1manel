@@ -6,7 +6,9 @@
 package dam.m06.uf1.Aplicacio;
 
 import dam.m06.uf1.Aplicacio.Model.Equips;
+import dam.m06.uf1.Aplicacio.Model.Equip;
 import dam.m06.uf1.Aplicacio.Model.Jugador;
+import dam.m06.uf1.Dades.CSV;
 import dam.m06.uf1.Dades.DadesException;
 import dam.m06.uf1.Dades.JugadorsBD;
 import java.io.File;
@@ -153,8 +155,12 @@ public class LogicJugador {
      * @param e
      * @throws AplicacioException 
      */
-    public static void desaJugadorsCSV(File fitx, Equips e) throws AplicacioException 
+    public static void desaJugadorsCSV(File fitx, Equips e) throws AplicacioException, DadesException 
     {     
-       throw new AplicacioException("No implementat");
+      // 
+        int con=0;
+        for (Equip equipo : e.getEquips())if (equipo.getJugadors().size()>0)con++;    
+        if (con==0) throw new AplicacioException("No existen Jugadores");
+        CSV.exportaJugadorsACSV(fitx, e);          
     }
 }
