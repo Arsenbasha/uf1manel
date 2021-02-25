@@ -13,6 +13,7 @@ import dam.m06.uf1.Aplicacio.LogicJugador;
 import dam.m06.uf1.Aplicacio.Model.Equip;
 import dam.m06.uf1.Aplicacio.Model.Equips;
 import dam.m06.uf1.Aplicacio.Model.Jugador;
+import dam.m06.uf1.Dades.DadesException;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -79,11 +80,12 @@ public class FXMLDocumentController implements Initializable {
     
     //<editor-fold defaultstate="collapsed" desc="Jugadors">
     @FXML
-    private void handleExportJugadorsToCSV(ActionEvent event) {
+    private void handleExportJugadorsToCSV(ActionEvent event) throws DadesException {
         exportarJugadorsACSV();
+        System.out.println("Hola buenas");
     }
     
-     private void exportarJugadorsACSV()
+     private void exportarJugadorsACSV() throws DadesException
     {
         try
         {
