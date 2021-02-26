@@ -221,12 +221,13 @@ public class LogicEquip {
     public static void desaEquipsCSV(File fitx, Equips e) throws AplicacioException {
         try {
             DriverMySql conn = null;
-            conn = new DriverMySql();
-
+            conn = new DriverMySql();    
+            if (e.getEquips().isEmpty())  throw new AplicacioException("Error :No hay equipos");
+            CSV.exportaJugadorsACSV(fitx, e);   
             JugadorsBD.CarregarJugadors(conn.getConnection());
             CSV.exportaEquipsACSV(fitx, e);
         } catch (DadesException ex) {
-            throw new AplicacioException("No implementat");
+               throw new AplicacioException("Error guardando equipo:" +ex.getMessage());
         }
     }
 }
