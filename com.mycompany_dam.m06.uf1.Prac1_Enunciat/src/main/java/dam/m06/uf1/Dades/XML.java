@@ -48,9 +48,7 @@ public class XML {
             Unmarshaller unmarshaller = context.createUnmarshaller();
 
             Equips ret = (Equips) unmarshaller.unmarshal(fitx);
-
-            System.out.println(ret.getEquips());
-
+            
             return ret;
 
         } catch (JAXBException ex) {

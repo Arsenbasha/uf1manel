@@ -82,8 +82,6 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleExportJugadorsToCSV(ActionEvent event) throws DadesException {
         exportarJugadorsACSV();
-        System.out.println("Hola buenas");
-        System.out.println("Hola buenas");
     }
 
     private void exportarJugadorsACSV() throws DadesException {
@@ -411,7 +409,7 @@ public class FXMLDocumentController implements Initializable {
 
                 //obtenim les dades del XML
                 e = LogicEquip.carregaDadesDeXML(selectedFile);
-
+                
                 //eliminem les dades de la BD
                 LogicJugador.deleteAllJugadors();
                 LogicEquip.deleteAllEquips();

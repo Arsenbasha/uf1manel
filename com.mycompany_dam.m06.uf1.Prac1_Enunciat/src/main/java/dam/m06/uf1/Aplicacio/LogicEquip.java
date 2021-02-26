@@ -153,7 +153,7 @@ public class LogicEquip {
     public static Equips carregaDadesDeXML(File fitxer) throws AplicacioException {
         Equips ret = new Equips();
         try {
-            XML.carregaDadesDeXML(fitxer);
+            ret = XML.carregaDadesDeXML(fitxer);
 
             return ret;
         } catch (DadesException ex) {
@@ -187,8 +187,7 @@ public class LogicEquip {
      */
     public static String desaDadesBD(Equips e) {
         String errors = "";
-
-        if (e.getEquips() != null && e.getEquips().size() > 0) {
+        if (e.getEquips().size() > 0) {
             for (Equip eq : e.getEquips()) {
                 try {
                     LogicEquip.insertEquip(eq);
