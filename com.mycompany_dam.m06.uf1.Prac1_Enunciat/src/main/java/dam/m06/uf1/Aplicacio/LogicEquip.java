@@ -232,8 +232,14 @@ public class LogicEquip {
      * @param e equips a desar
      * @throws AplicacioException 
      */   
-    public static void desaEquipsCSV(File fitx, Equips e) throws AplicacioException 
-    {   
-       throw new AplicacioException("No implementat");
+      public static void desaEquipsCSV(File fitx, Equips e) throws AplicacioException {
+        try {
+            DriverMySql conn = null;
+            conn = new DriverMySql();
+            
+            JugadorsBD.CarregarJugadors(conn.getConnection());
+        } catch (DadesException ex) {
+               throw new AplicacioException("No implementat");
+        }
     }
 }
