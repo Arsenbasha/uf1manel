@@ -18,25 +18,38 @@ import javax.xml.bind.Unmarshaller;
  * @author manel
  */
 public class XML {
-    
-    public static void exportaDadesAXML(File fitx, Equips dades) throws DadesException
-    {
-       throw new DadesException ("No implementat");
+
+    public static void exportaDadesAXML(File fitx, Equips dades) throws DadesException {
+        try {
+            JAXBContext context = JAXBContext.newInstance(Equips.class);
+
+            // Instanciem serialitzador (d'objectes a sortida en XML)
+            Marshaller marshaller = context.createMarshaller();
+
+            // inicialitzem propietats del serialitzador
+            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+            // Serialitza l'arbre XML a un fitxer
+            marshaller.marshal(dades, fitx);
+        } catch (JAXBException ex) {
+            throw new DadesException(ex.toString());
+        }
     }
-    
+
     /**
-     * Carrega equips i jugadors d'un fitxer XML
-     * No verifica regles de negoci
+     * Carrega equips i jugadors d'un fitxer XML No verifica regles de negoci
+     *
      * @param fitx
      * @return
-     * @throws DadesException 
+     * @throws DadesException
      */
-    public static Equips carregaDadesDeXML(File fitx) throws DadesException
-    {
+    public static Equips carregaDadesDeXML(File fitx) throws DadesException {
         Equips ret = new Equips();
-        
-        if (true) throw new DadesException ("No implementat");
-        
+
+        if (true) {
+            throw new DadesException("No implementat");
+        }
+
         return ret;
     }
 }
