@@ -44,12 +44,23 @@ public class XML {
      * @throws DadesException
      */
     public static Equips carregaDadesDeXML(File fitx) throws DadesException {
-        Equips ret = new Equips();
+        try {
 
-        if (true) {
-            throw new DadesException("No implementat");
+            // Punt d'entrada al context JAXB, amb la classe "contenidora"
+            JAXBContext context = JAXBContext.newInstance(Equips.class);
+
+            //Instanciem el deserialitzador (d'entrada en XML a objectes)
+            Unmarshaller unmarshaller = context.createUnmarshaller();
+
+            //deserialitzem des d'un fitxer a objecte
+            Equips ret = (Equips) unmarshaller.unmarshal(fitx);
+            
+            System.out.println(ret.getEquips());
+            
+            return ret;
+            
+        } catch (JAXBException ex) {
+            throw new DadesException(ex.toString());
         }
-
-        return ret;
     }
 }
