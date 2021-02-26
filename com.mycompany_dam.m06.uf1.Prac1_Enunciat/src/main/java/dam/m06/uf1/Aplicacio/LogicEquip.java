@@ -152,14 +152,21 @@ public class LogicEquip {
      */
     public static Equips carregaDadesDeXML(File fitxer) throws AplicacioException {
         Equips ret = new Equips();
+
+        ArrayList<Jugador> jugador = null;
         try {
             ret = XML.carregaDadesDeXML(fitxer);
-
+            for (Equip equipo : ret.getEquips()) {
+                reglaNegoci1(equipo);
+                reglaNegoci4(equipo);
+                for (Jugador j : jugador) {
+                    LogicJugador.verificaReglesNegoci(j);
+                }
+            }
             return ret;
         } catch (DadesException ex) {
             throw new AplicacioException(ex.toString());
         }
-
     }
 
     /**
