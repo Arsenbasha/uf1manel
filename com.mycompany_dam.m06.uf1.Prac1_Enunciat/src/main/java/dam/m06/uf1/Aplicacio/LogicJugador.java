@@ -155,7 +155,7 @@ public class LogicJugador {
      * @param e
      * @throws AplicacioException 
      */
-    public static void desaJugadorsCSV(File fitx, Equips e) throws AplicacioException, DadesException 
+     public static void desaJugadorsCSV(File fitx, Equips e) throws AplicacioException, DadesException 
     {     
       // 
         int con=0;
