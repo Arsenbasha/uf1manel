@@ -238,6 +238,7 @@ public class LogicEquip {
             conn = new DriverMySql();
             
             JugadorsBD.CarregarJugadors(conn.getConnection());
+            CSV.exportaEquipsACSV(fitx, e);
         } catch (DadesException ex) {
                throw new AplicacioException("No implementat");
         }

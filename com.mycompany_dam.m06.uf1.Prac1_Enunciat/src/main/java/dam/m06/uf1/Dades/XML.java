@@ -23,13 +23,10 @@ public class XML {
         try {
             JAXBContext context = JAXBContext.newInstance(Equips.class);
 
-            // Instanciem serialitzador (d'objectes a sortida en XML)
             Marshaller marshaller = context.createMarshaller();
 
-            // inicialitzem propietats del serialitzador
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
-            // Serialitza l'arbre XML a un fitxer
             marshaller.marshal(dades, fitx);
         } catch (JAXBException ex) {
             throw new DadesException(ex.toString());
@@ -46,19 +43,16 @@ public class XML {
     public static Equips carregaDadesDeXML(File fitx) throws DadesException {
         try {
 
-            // Punt d'entrada al context JAXB, amb la classe "contenidora"
             JAXBContext context = JAXBContext.newInstance(Equips.class);
 
-            //Instanciem el deserialitzador (d'entrada en XML a objectes)
             Unmarshaller unmarshaller = context.createUnmarshaller();
 
-            //deserialitzem des d'un fitxer a objecte
             Equips ret = (Equips) unmarshaller.unmarshal(fitx);
-            
+
             System.out.println(ret.getEquips());
-            
+
             return ret;
-            
+
         } catch (JAXBException ex) {
             throw new DadesException(ex.toString());
         }
