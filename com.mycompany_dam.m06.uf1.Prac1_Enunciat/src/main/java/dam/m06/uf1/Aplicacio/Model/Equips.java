@@ -6,11 +6,13 @@
 package dam.m06.uf1.Aplicacio.Model;
 
 import java.util.ArrayList;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author manel
  */
+@XmlRootElement
 public class Equips {
     
     private ArrayList<Equip> equips = new ArrayList<>();
