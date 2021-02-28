@@ -37,15 +37,17 @@ public class Common {
 
         try {
             Builder builder = new Builder();
-            File fitXML = new File(fitxXML.getFile());
-            doc = builder.build(fitXML);
+            System.out.println(fitxXML+ "     fitxXml");
+            File file = new File(fitxXML.getFile());
+            System.out.println(file);
+            doc = builder.build(file);
             Element root = doc.getRootElement();
             Elements llistapredicicon = root.getChildElements("prediccion");
             for (int i = 0; i < llistapredicicon.size(); i++) {
                 Elements dia = llistapredicicon.get(i).getChildElements();
                 for (int j = 0; j < dia.size(); j++) {
                     ret += "Dia: " + dia.get(j).getAttribute("fecha").getValue() + "  ;  ";
-                    Elements temperatura = dia.get(i).getChildElements("temperatura");
+                    Elements temperatura = dia.get(j).getChildElements("temperatura");
                     for (int k = 0; k < temperatura.size(); k++) {
                         Element maxima = temperatura.get(k).getFirstChildElement("maxima");
                         ret += "Temp. maxima: " + maxima.getValue() +System.lineSeparator() ; 
