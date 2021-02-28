@@ -546,7 +546,7 @@ public class FXMLDocumentController implements Initializable {
         urls.add("aemet_madrid.xml");
         urls.add("aemet_bcn.xml");
         urls.add("aemet_valencia.xml");
-        urls.add("aemet_zaragoza");
+        urls.add("aemet_zaragoza.xml"); // correccíon sin la extensión peta
 
         ArrayList<String> choices = new ArrayList<>();
         choices.add("Madrid");
